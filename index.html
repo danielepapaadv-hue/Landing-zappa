@@ -141,9 +141,6 @@
     background:rgba(250,249,247,0.92);
     backdrop-filter:saturate(180%) blur(10px);
     border-bottom:1px solid var(--line);
-    width:100vw;
-    left:50%;
-    margin-left:-50vw;
   }
   .site-header .container{
     display:flex; align-items:center; justify-content:space-between;
@@ -244,10 +241,7 @@
     background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
     color:var(--white);
     padding:56px 0;
-    width:100vw;
     position:relative;
-    left:50%;
-    margin-left:-50vw;
   }
   .banner-grid{ display:grid; gap:32px; align-items:center; }
   @media(min-width:900px){ .banner-grid{ grid-template-columns:1fr 0.9fr; } }
@@ -299,10 +293,7 @@
   /* ---------- Black about section ---------- */
   .about-dark{
     background:var(--black); color:#E4E2DD; padding:64px 0; text-align:center;
-    width:100vw;
     position:relative;
-    left:50%;
-    margin-left:-50vw;
   }
   .about-dark .eyebrow{ color:#C98D96; }
   .about-dark h2{ color:var(--white); max-width:720px; margin:0 auto 18px; }
@@ -337,10 +328,7 @@
   /* ---------- Footer ---------- */
   footer{
     background:var(--black); color:#D9D7D3; padding:40px 0;
-    width:100vw;
     position:relative;
-    left:50%;
-    margin-left:-50vw;
   }
   .footer-grid{ display:flex; flex-direction:column; gap:18px; }
   @media(min-width:760px){ .footer-grid{ flex-direction:row; justify-content:space-between; align-items:flex-end; } }
@@ -708,6 +696,29 @@
 </a>
 
 <script>
+  // Full-bleed fix: measures the real offset of full-width sections and
+  // corrects it with an exact pixel margin, instead of trusting a CSS
+  // 100vw trick that breaks when the page is embedded inside nested,
+  // padded wrapper elements (e.g. a page builder's row/column system).
+  (function(){
+    var els = document.querySelectorAll('.site-header, footer, .banner, .about-dark');
+    function applyFullBleed(){
+      els.forEach(function(el){
+        el.style.marginLeft = '0px';
+        el.style.marginRight = '0px';
+        el.style.width = '';
+        var rect = el.getBoundingClientRect();
+        el.style.marginLeft = (-rect.left) + 'px';
+        el.style.width = window.innerWidth + 'px';
+      });
+    }
+    applyFullBleed();
+    window.addEventListener('resize', applyFullBleed);
+    window.addEventListener('load', applyFullBleed);
+    setTimeout(applyFullBleed, 500);
+    setTimeout(applyFullBleed, 1500);
+  })();
+
   // Header shadow on scroll
   var header = document.querySelector('.site-header');
   window.addEventListener('scroll', function(){
