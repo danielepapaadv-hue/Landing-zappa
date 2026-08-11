@@ -141,6 +141,9 @@
     background:rgba(250,249,247,0.92);
     backdrop-filter:saturate(180%) blur(10px);
     border-bottom:1px solid var(--line);
+    width:100vw;
+    left:50%;
+    margin-left:-50vw;
   }
   .site-header .container{
     display:flex; align-items:center; justify-content:space-between;
@@ -330,7 +333,13 @@
   .final-cta h2{ max-width:600px; margin:0 auto 24px; }
 
   /* ---------- Footer ---------- */
-  footer{ background:var(--black); color:#D9D7D3; padding:40px 0; }
+  footer{
+    background:var(--black); color:#D9D7D3; padding:40px 0;
+    width:100vw;
+    position:relative;
+    left:50%;
+    margin-left:-50vw;
+  }
   .footer-grid{ display:flex; flex-direction:column; gap:18px; }
   @media(min-width:760px){ .footer-grid{ flex-direction:row; justify-content:space-between; align-items:flex-end; } }
   .footer-logo{ color:var(--white); font-weight:900; font-size:16px; margin-bottom:8px; }
