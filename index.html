@@ -282,6 +282,12 @@
     margin:0 auto;
     padding:0 20px;
   }
+  /* Equal columns for protocol rows so the image is the same size on
+     either side, regardless of which one alternates left/right. */
+  @media(min-width:900px){
+    .zh-protocol-banner .zh-banner-grid,
+    .zh-panel-light .zh-banner-grid{ grid-template-columns:1fr 1fr; }
+  }
   .zh-protocol-banner .zh-split-copy .zh-method-index{ color:#E7B7BE; }
   .zh-protocol-banner .zh-split-copy h3{ color:var(--white); }
   .zh-protocol-banner .zh-split-copy .zh-split-hook{ color:var(--white); }
@@ -501,6 +507,7 @@
         <!-- 2 LIGHT CONTROL — a tutta larghezza, sfondo bianco -->
         <div class="zh-panel-light">
           <div class="zh-banner-grid">
+            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Light Control</span><span class="zh-ph-badge">Light Control</span></div>
             <div class="zh-split-copy">
               <div class="zh-method-index">Protocollo 02</div>
               <h3>Light Control</h3>
@@ -513,7 +520,6 @@
               </ul>
               <a class="zh-btn zh-btn-primary" href="#zh-form">Scopri Light Control</a>
             </div>
-            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Light Control</span><span class="zh-ph-badge">Light Control</span></div>
           </div>
         </div>
 
@@ -539,6 +545,7 @@
         <!-- 4 FORM BALANCE — a tutta larghezza, sfondo bianco -->
         <div class="zh-panel-light">
           <div class="zh-banner-grid">
+            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Form Balance</span><span class="zh-ph-badge">Form Balance</span></div>
             <div class="zh-split-copy">
               <div class="zh-method-index">Protocollo 04</div>
               <h3>Form Balance</h3>
@@ -551,7 +558,6 @@
               </ul>
               <a class="zh-btn zh-btn-primary" href="#zh-form">Scopri Form Balance</a>
             </div>
-            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Form Balance</span><span class="zh-ph-badge">Form Balance</span></div>
           </div>
         </div>
 
@@ -577,6 +583,7 @@
         <!-- 6 CURLY CONTROL — a tutta larghezza, sfondo bianco -->
         <div class="zh-panel-light">
           <div class="zh-banner-grid">
+            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Curly Control</span><span class="zh-ph-badge">Curly Control</span></div>
             <div class="zh-split-copy">
               <div class="zh-method-index">Protocollo 06</div>
               <h3>Curly Control</h3>
@@ -589,7 +596,6 @@
               </ul>
               <a class="zh-btn zh-btn-primary" href="#zh-form">Scopri Curly Control</a>
             </div>
-            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Curly Control</span><span class="zh-ph-badge">Curly Control</span></div>
           </div>
         </div>
 
