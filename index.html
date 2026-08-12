@@ -304,6 +304,7 @@
     margin:0 auto;
     padding:0 20px;
   }
+  .zh-panel-light .zh-img-placeholder{ aspect-ratio:4/3; }
 
   /* ---------- Black about section ---------- */
   .zh-about-dark{
@@ -500,7 +501,6 @@
         <!-- 2 LIGHT CONTROL — a tutta larghezza, sfondo bianco -->
         <div class="zh-panel-light">
           <div class="zh-banner-grid">
-            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Light Control</span><span class="zh-ph-badge">Light Control</span></div>
             <div class="zh-split-copy">
               <div class="zh-method-index">Protocollo 02</div>
               <h3>Light Control</h3>
@@ -513,6 +513,7 @@
               </ul>
               <a class="zh-btn zh-btn-primary" href="#zh-form">Scopri Light Control</a>
             </div>
+            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Light Control</span><span class="zh-ph-badge">Light Control</span></div>
           </div>
         </div>
 
@@ -538,7 +539,6 @@
         <!-- 4 FORM BALANCE — a tutta larghezza, sfondo bianco -->
         <div class="zh-panel-light">
           <div class="zh-banner-grid">
-            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Form Balance</span><span class="zh-ph-badge">Form Balance</span></div>
             <div class="zh-split-copy">
               <div class="zh-method-index">Protocollo 04</div>
               <h3>Form Balance</h3>
@@ -551,6 +551,7 @@
               </ul>
               <a class="zh-btn zh-btn-primary" href="#zh-form">Scopri Form Balance</a>
             </div>
+            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Form Balance</span><span class="zh-ph-badge">Form Balance</span></div>
           </div>
         </div>
 
@@ -576,7 +577,6 @@
         <!-- 6 CURLY CONTROL — a tutta larghezza, sfondo bianco -->
         <div class="zh-panel-light">
           <div class="zh-banner-grid">
-            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Curly Control</span><span class="zh-ph-badge">Curly Control</span></div>
             <div class="zh-split-copy">
               <div class="zh-method-index">Protocollo 06</div>
               <h3>Curly Control</h3>
@@ -589,6 +589,7 @@
               </ul>
               <a class="zh-btn zh-btn-primary" href="#zh-form">Scopri Curly Control</a>
             </div>
+            <div class="zh-img-placeholder"><span class="zh-ph-label">Foto — Curly Control</span><span class="zh-ph-badge">Curly Control</span></div>
           </div>
         </div>
 
@@ -718,11 +719,16 @@
   (function(){
     var els = document.querySelectorAll('.zh-site-header, footer, .zh-banner, .zh-about-dark, .zh-panel-light');
     function applyFullBleed(){
+      // Guard against transient states (e.g. a backgrounded/hidden tab)
+      // where the viewport can momentarily report a bogus 0 width — never
+      // let that corrupt the layout by writing width:0 to every section.
+      if (!window.innerWidth || window.innerWidth < 100) return;
       els.forEach(function(el){
         el.style.marginLeft = '0px';
         el.style.marginRight = '0px';
         el.style.width = '';
         var rect = el.getBoundingClientRect();
+        if (!rect.width) return;
         el.style.marginLeft = (-rect.left) + 'px';
         el.style.width = window.innerWidth + 'px';
       });
