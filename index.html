@@ -645,36 +645,27 @@
         </div>
 
         <div class="zh-form-side">
-          <!-- GHL FORM EMBED START — sostituisci il form qui sotto con l'embed nativo GHL, mantenendo il div .zh-form-card -->
-          <div class="zh-form-card">
-            <div class="zh-form-success" id="zh-formSuccess">Grazie! Abbiamo ricevuto la tua richiesta: ti richiamiamo a breve.</div>
-            <form id="zh-zappaForm" action="#" method="post">
-              <div class="zh-field">
-                <label for="zh-nome">Nome e cognome</label>
-                <input type="text" id="zh-nome" name="nome" placeholder="Il tuo nome" required autocomplete="name">
-              </div>
-              <div class="zh-field">
-                <label for="zh-telefono">Telefono</label>
-                <input type="tel" id="zh-telefono" name="telefono" placeholder="Il tuo numero" required autocomplete="tel" inputmode="tel">
-              </div>
-              <div class="zh-field">
-                <label for="zh-metodo">Metodo di interesse</label>
-                <select id="zh-metodo" name="metodo">
-                  <option>Color Balance</option>
-                  <option>Light Control</option>
-                  <option>Shape</option>
-                  <option>Form Balance</option>
-                  <option>Fiber Repair</option>
-                  <option>Curly Control</option>
-                  <option>Frizz Control</option>
-                  <option>Non lo so ancora — consigliatemi voi</option>
-                </select>
-              </div>
-              <button type="submit" class="zh-btn zh-btn-primary zh-btn-block">Invia richiesta</button>
-              <p class="zh-form-consent">Compilando il form accetti di essere ricontattata telefonicamente da Zappa Hair Beauty.</p>
-            </form>
+          <!-- GHL FORM EMBED -->
+          <div class="zh-form-card" style="padding:0; overflow:hidden;">
+            <iframe
+              src="https://api.snyffohub.com/widget/form/EkjKgPV4vshdRbixv5Z7"
+              style="width:100%;height:741px;border:none;border-radius:8px;display:block;"
+              id="inline-EkjKgPV4vshdRbixv5Z7"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Form google ads"
+              data-height="741"
+              data-layout-iframe-id="inline-EkjKgPV4vshdRbixv5Z7"
+              data-form-id="EkjKgPV4vshdRbixv5Z7"
+              title="Form google ads"
+            ></iframe>
           </div>
-          <!-- GHL FORM EMBED END -->
+          <!-- /GHL FORM EMBED -->
         </div>
       </div>
     </div>
@@ -762,18 +753,8 @@
     function resetTimer(){ clearInterval(timer); timer = setInterval(next, 6000); }
     resetTimer();
   })();
-
-  // Static form fallback UX (remove/replace when the GHL embed is wired in)
-  var form = document.getElementById('zh-zappaForm');
-  if (form) {
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      document.getElementById('zh-formSuccess').classList.add('zh-show');
-      form.reset();
-      form.querySelector('button[type="submit"]').setAttribute('disabled','disabled');
-    });
-  }
 </script>
+<script src="https://api.snyffohub.com/js/form_embed.js"></script>
 
 </body>
 </html>
